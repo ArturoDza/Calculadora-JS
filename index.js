@@ -9,12 +9,28 @@ btnCalcular.addEventListener('click',calcular)
 
 function calcular(){
     const operacion = txtoperacion.value
-    const op1 = txtOp1.value
-    const op2 = txtOp2.value
+    const op1 = parseFloat(txtOp1.value)
+    const op2 = parseFloat(txtOp2.value)
 
-    if(operacion == "+" || operacion == "-" || operacion == "*" || 
-        operacion == "/"){
-    pResultado.innerText = "Calculo posible"
+    if((operacion == "+" || operacion == "-" || operacion == "*" || 
+        operacion == "/") && !isNaN(op1) && !isNaN(op2)){
+            let resultado;
+            switch(operacion){
+                case "+":
+                    resultado = op1 + op2
+                    break;
+                case "-":
+                    resultado = op1 - op2
+                    break;
+                case "+":
+                    resultado = op1 * op2
+                    break;
+                case "/":
+                    resultado = op1 / op2
+                    break;
+            }
+
+    pResultado.innerText = "Resultado= " + resultado
     }else{
     pResultado.innerText = "Calculo imposible de realizar"
     }
